@@ -18,9 +18,11 @@ public class Titanic implements Escritura, Lectura, ImpresoraFactory, FicheroFac
         Thread[] barcas = new Thread[VALOR_FINAL - VALOR_INICIAL];
 
         for (int i = VALOR_INICIAL; i < VALOR_FINAL; i++) {
-            barcas[i - VALOR_INICIAL] = new BarcaHilo();
+            barcas[i - VALOR_INICIAL] = new Thread(new BarcaHilo());
             barcas[i - VALOR_INICIAL].start();
         }
+
+        System.out.println(barcas[1].getState());
 
         for (Thread barca : barcas)
             barca.join();

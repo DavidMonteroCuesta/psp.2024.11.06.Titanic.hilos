@@ -7,7 +7,7 @@ import static es.etg.psp.dmc.ttnc.util.Variables.*;
 
 import java.io.File;
 
-public class BarcaHilo extends Thread implements Lectura{    
+public class BarcaHilo implements Lectura, Runnable{    
     public void run() {
         String respuesta = comandosBarca.ejecutar();
         int numeroLinea = Lectura.contarLineas(new File(rutaFichero));
