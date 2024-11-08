@@ -22,8 +22,6 @@ public class Titanic implements Escritura, Lectura, ImpresoraFactory, FicheroFac
             barcas[i - VALOR_INICIAL].start();
         }
 
-        System.out.println(barcas[1].getState());
-
         for (Thread barca : barcas)
             barca.join();
         impresora.imprimir(TOTAL + DOS_PUNTOS + ESPACIO_EN_BLANCO + String.valueOf(GestorTitanic.contarPersonas(rutaFichero)) + SALTO_DE_LINEA);

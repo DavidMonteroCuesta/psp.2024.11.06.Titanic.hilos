@@ -36,7 +36,7 @@ public class Texto {
     public static final int INICIO_BARCAS_TOTAL = 1;
     public static final int VALOR_CERO = 0;
     public static final int VALOR_UNO = 1;
-    public static final int VALOR_FINAL = 50;
+    public static final int VALOR_FINAL = 500;
     public static final int MAX_TIEMPO_EJEC_MILISEC = 6000;
     public static final int MIN_TIEMPO_EJEC_MILISEC = 2000;
     public static final int MAX_PASAJEROS = 100;
