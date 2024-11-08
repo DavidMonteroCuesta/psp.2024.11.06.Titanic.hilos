@@ -1,0 +1,76 @@
+@startuml Doc
+
+class Titanic{
+    + main(String[] args)
+}
+
+class Barca {
+    - random(comando[]: String) : StringBuilder
+    + main(String[] args)
+}
+
+class BarcaHilo extends Thread{
+    + run() : void
+}
+
+class Comando {
+    - nombre : String
+    - parametros : String[]
+    + ejecutar(comando[]: String) : StringBuilder
+    - obtenerComando() : String
+}
+
+interface Escritura{
+    {static} escribir(nombreF: String, contenido: String)
+    {static} escribir(nombreF: String, output: StringBuilder)
+    {static} vaciar(nombreF: String)
+}
+
+interface Lectura{
+    {static} leer(fichero: File)
+}
+
+enum imprimibles.TipoImpresora {
+    FICHERO
+    VISUAL
+}
+
+enum imprimibles.TipoFichero {
+    MD
+    TXT
+    HTML
+    XML
+    RTF
+}
+
+interface ImpresoraFactory{
+    + definir(tipo: TipoImpresora) : Impresora
+}
+
+interface FicheroFactory{
+    + definir(rutaFichero: String, tipo: TipoFichero) : String
+}
+
+abstract class Impresora {
+    + imprimir()
+}
+class ImpresoraMD extends Impresora implements Escritura
+class ImpresoraVisual extends Impresora
+
+class GestorTitanic implements Lectura{
+    + contar(fichero: String) : int
+}
+
+class util.Texto
+class util.Variables
+
+Variables --> FicheroFactory
+Variables --> ImpresoraFactory
+BarcaHilo ..> Impresora
+BarcaHilo --> Barca :ejecuta
+Titanic --> GestorTitanic
+Titanic --> Comando
+Titanic --> BarcaHilo
+Titanic ..> Impresora
+
+@enduml
